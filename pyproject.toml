@@ -1,6 +1,6 @@
 [project]
 name = "gaze-estimation-lib"
-version = "0.1.0"
+version = "0.1.1"
 description = "Gaze augmentation stage: attach gaze (yaw/pitch + gaze_vec) using face boxes in upstream JSON."
 readme = "README.md"
 
@@ -10,7 +10,7 @@ authors = [
 license = { file = "LICENSE" }
 requires-python = ">=3.10"
 dependencies = [
-    "l2cs",
+    "l2cs @ git+https://github.com/edavalosanaya/L2CS-Net.git@main",
     "tqdm>=4.67.3",
 ]
 
@@ -25,6 +25,3 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["gaze"]
-
-[tool.uv.sources]
-l2cs = { git = "https://github.com/edavalosanaya/L2CS-Net.git", rev = "main" }
