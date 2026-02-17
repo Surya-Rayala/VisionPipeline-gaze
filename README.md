@@ -45,6 +45,18 @@ Original Video (.mp4)
                                    └── gaze.json (augmented; gaze-v1 meta)
 ```
 
+Stage 1 (Detection):
+- PyPI: https://pypi.org/project/detect-lib/
+- GitHub: https://github.com/Surya-Rayala/VideoPipeline-detection
+
+Stage 2 (Tracking + ReID):
+- PyPI: https://pypi.org/project/gallery-track-lib/
+- GitHub: https://github.com/Surya-Rayala/VisionPipeline-gallery-track
+
+Stage 3 (Face Augmentation):
+- PyPI: https://pypi.org/project/detect-face-lib/
+- GitHub: https://github.com/Surya-Rayala/VisionPipeline-detect-face
+
 Note: Each stage consumes the original video + the upstream JSON from the previous stage.
 
 ---
