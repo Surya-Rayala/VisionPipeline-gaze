@@ -1,5 +1,5 @@
 [project]
-name = "gaze-lib"
+name = "gaze-estimation-lib"
 version = "0.1.0"
 description = "Gaze augmentation stage: attach gaze (yaw/pitch + gaze_vec) using face boxes in upstream JSON."
 readme = "README.md"

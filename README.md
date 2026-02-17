@@ -1,17 +1,17 @@
 
 
-# gaze-lib
+# gaze-estimation-lib
 
 **Minimum Python:** `>=3.10`
 
-**gaze-lib** is a modular **gaze estimation + JSON augmentation** toolkit that attaches gaze predictions to detections containing face boxes.
+**gaze-estimation-lib** is a modular **gaze estimation + JSON augmentation** toolkit that attaches gaze predictions to detections containing face boxes.
 
 This is the **Gaze Augmentation stage** of the Vision Pipeline.
 
 Estimators included:
 - **l2cs**: L2CS-Net backend (face-box driven; no internal detector)
 
-> By default, `gaze-lib` **does not write any files**. You opt-in to saving JSON, frames, or annotated video via flags.
+> By default, `gaze-estimation-lib` **does not write any files**. You opt-in to saving JSON, frames, or annotated video via flags.
 
 ---
 
@@ -39,7 +39,7 @@ Original Video (.mp4)
                            └── faces.json (face-v1 meta)
                                    │
                                    ▼
-                              gaze-lib
+                              gaze-estimation-lib
                          (Gaze Augmentation)
                                    │
                                    └── gaze.json (augmented; gaze-v1 meta)
@@ -49,9 +49,9 @@ Note: Each stage consumes the original video + the upstream JSON from the previo
 
 ---
 
-## What gaze-lib expects
+## What gaze-estimation-lib expects
 
-`gaze-lib` **does not run a face detector**.
+`gaze-estimation-lib` **does not run a face detector**.
 
 Input JSON must contain:
 - `frames[*].detections[*]`
@@ -69,7 +69,7 @@ As long as detections and face boxes exist, normalization will adapt.
 
 ## Output: augmented JSON (returned + optionally saved)
 
-`gaze-lib` returns an **augmented JSON payload** in-memory that preserves the upstream schema and adds:
+`gaze-estimation-lib` returns an **augmented JSON payload** in-memory that preserves the upstream schema and adds:
 
 - `gaze_augment`: metadata about the estimator + association rules (versioned)
 - `detections[*].gaze`: minimal gaze payload
@@ -148,7 +148,7 @@ If no artifact flags are enabled, nothing is written.
 Requires Python >= 3.10.
 
 ```bash
-pip install gaze-lib
+pip install gaze-estimation-lib
 ```
 
 Module import name remains:
@@ -269,7 +269,7 @@ python -m gaze.cli.estimate_gaze \
 - `--fallback`: If set, when keypoint-origin is unavailable, fall back to the face box center (preferred) or detection box center.
   - If not set and `--kpt-origin` is provided, detections without a valid keypoint-origin are skipped.
 
-If you pass `--kpt-origin` but the JSON contains no keypoints, `gaze-lib` emits a warning and continues.
+If you pass `--kpt-origin` but the JSON contains no keypoints, `gaze-estimation-lib` emits a warning and continues.
 
 ### Artifact saving (all opt-in)
 
@@ -289,7 +289,7 @@ If you pass `--kpt-origin` but the JSON contains no keypoints, `gaze-lib` emits 
 
 # Python usage (import)
 
-You can use `gaze-lib` as a library after installing it.
+You can use `gaze-estimation-lib` as a library after installing it.
 
 ### Quick sanity check
 
